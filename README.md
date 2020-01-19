@@ -1,6 +1,6 @@
 #Appdeamon app to use Ikea Tradfri switches as dimmers
 _Based on a Gist by Claudio Bartoli_
-```python
+```yaml
 ---
 remote_corridoio_brightness:
   module: tradfri
