@@ -10,7 +10,7 @@ class TradfriRemoteDimmer(hass.Hass):
     self.dim_step = self.args['dimmer']['step']
     self.dim_action = 0
     self.target_remote_type = self.args['remote']['type']
-    self.log(f"Initialized dimming to IKEA tradfri remote control [{self.target_remote}] type [{self.target_remote_type}] on target lights [{self.target_lights}]")
+    self.log(f"Initialized dimming to IKEA tradfri remote control [{self.target_remote}] type [{self.target_remote_type}] on target lights {self.target_lights}")
     self.listen_event(self.deconz_event, "deconz_event", id = self.target_remote)
     if self.target_remote_type == 'ROUND': self.remote_events = {'UP_HOLD': 2001,'UP_CLICK': 2002,'DOWN_HOLD': 3001,'DOWN_CLICK': 3002}
     else: self.remote_events = {'UP_HOLD': 1001,'UP_CLICK': 1002,'DOWN_HOLD': 2001,'DOWN_CLICK': 2002}
