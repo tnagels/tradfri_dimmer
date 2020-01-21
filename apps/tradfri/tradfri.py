@@ -32,16 +32,16 @@ class TradfriRemoteDimmer(hass.Hass):
 
 
   def deconz_event(self, event_name, data, kwargs):
-    if data['event'] == 2001:
+    if data['event'] == self_remote_events['UP_HOLD']:
       self.dim_action = self.dim_step
       self.dimmer()
-    elif data['event'] == 3001:
+  elif data['event'] == self_remote_events['DOWN_HOLD']:
       self.dim_action = -self.dim_step
       self.dimmer()
-    elif data['event'] == 2002:
+  elif data['event'] == self_remote_events['UP_CLICK']:
       self.dim_action = 0
       self.turn_on(self.target_light)
-    elif data['event'] == 3002:
+  elif data['event'] == self_remote_events['DOWN_CLICK']:
       self.dim_action = 0
       self.turn_off(self.target_light)
     else:
