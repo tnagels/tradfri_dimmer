@@ -1,5 +1,5 @@
 #Appdeamon app to use Ikea Tradfri switches as dimmers
-_Based on a Gist by Claudio Bartoli_
+_Loosely based on a Gist by Claudio Bartoli_
 
 A lot of work still needs to be done as the code is not very nice, still working on it.
 
