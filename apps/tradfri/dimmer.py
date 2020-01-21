@@ -20,7 +20,7 @@ class Dimmer(object):
   def stop(self):
     self.__is_dimming = False
 
-  def __dim(self, **kwargs):
+  def __dim(self, kwargs):
     if self.__is_dimming == False:
       return
     newValue = self.__get_value() + kwargs["dim_step"]
