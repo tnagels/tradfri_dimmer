@@ -16,6 +16,9 @@ class TradfriRemoteDimmer(hass.Hass):
 
     self.listen_event(self.deconz_event, "deconz_event", id = self.target_remote)
 
+  def dimmer(self, kwargs):
+    log(kwargs["action"])
+
   def deconz_event(self, event_name, data, kwargs):
     if data['event'] == 2001:
       self.dim_action = self.dim_step
@@ -26,8 +29,6 @@ class TradfriRemoteDimmer(hass.Hass):
     else:
       self.dim_action = 0
 
-  def dimmer(self, kwargs):
-    log(kwargs["action"])
 
 #  To be added:
 #    value = self.get_state(self.target_light, attribute = self.dim_attribute)
