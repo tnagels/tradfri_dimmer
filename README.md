@@ -16,3 +16,4 @@ remote_corridoio_brightness:
     step: 15
     min: 0
     max: 255
+```
