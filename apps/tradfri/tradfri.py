@@ -22,6 +22,8 @@ class TradfriRemoteDimmer(hass.Hass):
       self.log("DOWN")
     else:
       self.log("STOP")
+
+#  To be added:
 #    value = self.get_state(self.target_light, attribute = self.dim_attribute)
 #    if value is None:
 #      value = 0
