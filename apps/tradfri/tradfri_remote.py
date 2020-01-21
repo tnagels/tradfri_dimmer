@@ -11,5 +11,7 @@ class TradfriRemoteButtons(object):
     return code == self.get_code(button, release)
 
   def long_press_handle(self, code, button, hold, release):
-    if (self.is_code(code, button, 'HOLD')): return hold()
-    if (self.is_code(code, button, 'RELEASE')): return release()
+#    if (self.is_code(code, button, 'HOLD')): return hold()
+#    if (self.is_code(code, button, 'RELEASE')): return release()
+    if (self.is_code(code, button, 1)): return hold()
+    if (self.is_code(code, button, 3)): return release()
