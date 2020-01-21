@@ -22,10 +22,10 @@ class TradfriRemoteDimmer(hass.Hass):
   def deconz_event(self, event_name, data, kwargs):
     if data['event'] == 2001:
       self.dim_action = self.dim_step
-      dimmer(action=self.dim_action)
+      self.dimmer(action=self.dim_action)
     elif data['event'] == 3001:
       self.dim_action = -self.dim_step
-      dimmer(action=self.dim_action)
+      self.dimmer(action=self.dim_action)
     else:
       self.dim_action = 0
 
