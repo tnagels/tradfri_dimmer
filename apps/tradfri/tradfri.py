@@ -18,7 +18,6 @@ class TradfriRemoteDimmer(hass.Hass):
   def deconz_event(self, event_name, data, kwargs):
     if data['event'] == 2001:
       self.log("UP")
-      step =
     elif data['event'] == 3001:
       self.log("DOWN")
     else:
