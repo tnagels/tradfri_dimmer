@@ -19,7 +19,7 @@ class TradfriRemoteDimmer(hass.Hass):
   def dimmer(self, kwargs):
     self.log(self.dim_action)
     if self.dim_action == 0: return
-    run_in(self.dimmer, 1)
+    self.run_in(self.dimmer, 1)
 
 
   def deconz_event(self, event_name, data, kwargs):
