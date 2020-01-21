@@ -27,4 +27,4 @@ class Dimmer(object):
       return
     newValue = self.__get_value() + kwargs["dim_step"]
     self.__set_value(newValue)
-    run_in(self.__dim, .5, kwargs)
+    run_in(self.__dim, 1, kwargs)
