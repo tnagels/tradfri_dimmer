@@ -17,7 +17,7 @@ class Dimmer(object):
   def down(self):
     self.__is_dimming = True
     dim_step = -self.__step
-    self.__dim(dim_step=-dim_step)
+    self.__dim(dim_step=dim_step)
 
   def stop(self):
     self.__is_dimming = False
