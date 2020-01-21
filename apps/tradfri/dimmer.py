@@ -16,7 +16,7 @@ class Dimmer(object):
 
   def down(self):
     self.__is_dimming = True
-    dim_step = self.__step
+    dim_step = -self.__step
     self.__dim(dim_step=-dim_step)
 
   def stop(self):
@@ -25,6 +25,6 @@ class Dimmer(object):
   def __dim(self, kwargs):
     if self.__is_dimming == False:
       return
-    newValue = self.__get_value() - kwargs["dim_step"]
+    newValue = self.__get_value() + kwargs["dim_step"]
     self.__set_value(newValue)
     run_in(self.__dim, .5, kwargs)
