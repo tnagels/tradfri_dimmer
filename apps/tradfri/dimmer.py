@@ -1,4 +1,3 @@
-import time
 from typing import Callable
 
 class Dimmer(object):
@@ -46,4 +45,3 @@ class Dimmer(object):
     else:
       self.__set_value(newVal)
       self.__dim(newVal, limit, update, hasExceeded)
-    time.sleep(.300)
