@@ -8,7 +8,7 @@ class Dimmer(object):
     self.__step = step
     self.__get_value = get_value
     self.__set_value = set_value
-
+    
   def up(self):
     self.__is_dimming = True
     self.__dim({"dim_step": self.__step})
