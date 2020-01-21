@@ -35,10 +35,10 @@ class TradfriRemoteDimmer(hass.Hass):
     elif data['event'] == 3001:
       self.dim_action = -self.dim_step
       self.dimmer()
-    if data['event'] == 2002:
+    elif data['event'] == 2002:
       self.dim_action = 0
       self.turn_on(self.target_light)
-    if data['event'] == 3002:
+    elif data['event'] == 3002:
       self.dim_action = 0
       self.turn_off(self.target_light)
     else:
