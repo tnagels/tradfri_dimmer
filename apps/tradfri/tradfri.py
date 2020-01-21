@@ -26,7 +26,7 @@ class TradfriRemoteDimmer(hass.Hass):
     else:
       self.dim_action = 0
 
-  def dimmer(self, kwargs)
+  def dimmer(self, kwargs):
     log(kwargs["action"])
 
 #  To be added:
