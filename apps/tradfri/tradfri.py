@@ -10,6 +10,7 @@ class TradfriRemoteDimmer(hass.Hass):
     self.dim_min = self.args['dimmer']['down']['limit']
     self.dim_max = self.args['dimmer']['up']['limit']
     self.dim_step = self.args['dimmer']['step']
+    self.dim_action = 0
 
     self.log(f"Initialized [{self.dim_attribute}] dimming to IKEA tradfri remote control [{self.target_remote}] on target lights [{self.target_light}]")
 
@@ -17,11 +18,16 @@ class TradfriRemoteDimmer(hass.Hass):
 
   def deconz_event(self, event_name, data, kwargs):
     if data['event'] == 2001:
-      self.log("UP")
+      self.dim_action = self.dim_step
+      dimmer(action=self.dim_action)
     elif data['event'] == 3001:
-      self.log("DOWN")
+      self.dim_action = -self.dim_step
+      dimmer(action=self.dim_action)
     else:
-      self.log("STOP")
+      self.dim_action = 0
+
+  def dimmer(self, kwargs)
+    log(kwargs["action"])
 
 #  To be added:
 #    value = self.get_state(self.target_light, attribute = self.dim_attribute)
