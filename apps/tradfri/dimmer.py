@@ -45,3 +45,4 @@ class Dimmer(object):
     else:
       self.__set_value(newVal)
       self.__dim(newVal, limit, update, hasExceeded)
+    await self.sleep(.5)
