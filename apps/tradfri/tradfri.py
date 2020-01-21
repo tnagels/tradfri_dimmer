@@ -21,9 +21,12 @@ class TradfriRemoteDimmer(hass.Hass):
     value = self.get_state(self.target_light, attribute = self.dim_attribute)
     if value is None: value = 0
     value += self.dim_action
-    if self.dim_min >= value >= self.dim_max:
+    if self.dim_min >= value:
       self.dim_action = 0
-      value = min(self.dim_max, max(self.dim_min, value))
+      value = self.dim_min
+    elif value >= self.dim_max:
+      self.dim_action = 0
+      value = self.dim_max
     self.turn_on(self.target_light, **{"brightness": value})
     self.run_in(self.dimmer, .5)
 
