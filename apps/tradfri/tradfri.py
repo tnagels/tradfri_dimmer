@@ -31,7 +31,10 @@ class TradfriRemoteDimmer(hass.Hass):
     self.button.long_press_handle(data['event'], self.args['dimmer']['down']['button'], self.dimmer.down, self.dimmer.stop)
 
   def get(self):
-    return self.get_state(self.target_light, attribute = self.dim_attribute)
+    value = self.get_state(self.target_light, attribute = self.dim_attribute)
+    if value is None:
+      value = 0
+    return value
 
   def set(self, value):
     self.turn_on(self.target_light, **{self.dim_attribute: value})
