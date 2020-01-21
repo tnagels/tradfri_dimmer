@@ -10,39 +10,21 @@ class Dimmer(object):
     self.__set_value = set_value
 
   def up(self):
-
     self.__is_dimming = True
-
-    value = self.__get_value()
-    limit = self.__max
-    update = lambda x: x + self.__step
-    hasExceeded = lambda x: x >= limit
-
-    self.__dim(value, limit, update, hasExceeded)
+    dim_step = self.__step
+    self.__dim(dim_step=dim_step)
 
   def down(self):
-
     self.__is_dimming = True
-    value = self.__get_value()
-    limit = self.__min
-    update = lambda x: x - self.__step
-    hasExceeded = lambda x: x <= limit
-
-    self.__dim(value, limit, update, hasExceeded)
+    dim_step = self.__step
+    self.__dim(dim_step=-dim_step)
 
   def stop(self):
     self.__is_dimming = False
 
-  def __dim(self, value, limit, update, hasExceeded):
+  def __dim(self, kwargs):
     if self.__is_dimming == False:
       return
-
-    newVal = update(value)
-
-    if hasExceeded(newVal):
-      self.__set_value(limit)
-      self.stop()
-    else:
-      self.__set_value(newVal)
-      self.__dim(newVal, limit, update, hasExceeded)
-    await self.sleep(.5)
+    newValue = self.__get_value() - kwargs["dim_step"]
+    self.__set_value(newValue)
+    run_in(self.__dim, .5, kwargs)
