@@ -11,13 +11,13 @@ class Dimmer(object):
 
   def up(self):
     self.__is_dimming = True
-    dim_step = self.__step
-    self.__dim(dim_step=dim_step)
+    kwargs["dim_step"] = self.__step
+    self.__dim(kwargs)
 
   def down(self):
     self.__is_dimming = True
-    dim_step = -self.__step
-    self.__dim(dim_step=dim_step)
+    kwargs["dim_step"] = -self.__step
+    self.__dim(kwargs)
 
   def stop(self):
     self.__is_dimming = False
