@@ -24,8 +24,8 @@ class TradfriRemoteDimmer(hass.Hass):
     value += self.dim_action
     if self.dim_min <= value <= self.dim_max:
       self.turn_on(self.target_light, **{self.dim_attribute: value})
-    self.run_in(self.dimmer, 1, kwargs)
     else: self.dim_action = 0
+    self.run_in(self.dimmer, 1, kwargs)
 
 
   def deconz_event(self, event_name, data, kwargs):
